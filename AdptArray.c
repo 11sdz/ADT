@@ -93,6 +93,9 @@ Result SetAdptArrayAt(PAdptArray pAdptArray, int id, PElement pElement){
         }
     }
     PElement pCopy=pAdptArray->copyFunct(pElement);
+    if(pAdptArray->array[id]){
+        pAdptArray->delFunct( pAdptArray->array[id]);
+    }
     pAdptArray->array[id]=pCopy;
     result = SUCCESS;
     return result;
